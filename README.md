@@ -30,18 +30,43 @@ The following Java files were selected from the greenDAO project for software ar
 ## Repository Structure
 
 ```
-greenDAO/
-├── AbstractDao.java
-├── AbstractDaoMaster.java
-├── AbstractDaoSession.java
-├── InternalUnitTestDaoAccess.java
-└── DESCRIPTION.md
+CSE423-SOLID-Team3/
+├── greenDAO/                             # Original multi-class system
+│   ├── AbstractDao.java
+│   ├── AbstractDaoMaster.java
+│   ├── AbstractDaoSession.java
+│   ├── InternalUnitTestDaoAccess.java
+│   └── DESCRIPTION.md
+├── refactored_greenDAO/                  # LLM-generated SOLID-compliant system
+│   ├── api/                              # Abstractions & Interfaces (ISP/DIP)
+│   │   ├── EntityRepository.java
+│   │   ├── EntityMapper.java
+│   │   ├── IdentityScopeCache.java
+│   │   ├── TransactionManager.java
+│   │   ├── DaoSession.java
+│   │   ├── DaoMaster.java
+│   │   └── UnitTestDaoAccess.java
+│   └── impl/                             # Concrete Implementations (SRP/DI)
+│       ├── BaseRepository.java
+│       ├── DefaultEntityMapper.java
+│       ├── DefaultIdentityScopeCache.java
+│       ├── DatabaseTransactionManager.java
+│       ├── DefaultDaoSession.java
+│       ├── DefaultDaoMaster.java
+│       └── DefaultUnitTestDaoAccess.java
+└── TASK3_SOLID_COMPLIANCE.md            # Task 3 SOLID Compliance Evaluation Report
 ```
 
 ---
 
-## Objective
+## TASK 3: SOLID Principles Compliance
 
-The purpose of this repository is to collect selected Java source files from the greenDAO framework for analysis and refactoring based on the SOLID principles of object-oriented design.
+### Evaluation Summary
 
-Future work will focus on identifying design issues and improving the software architecture while preserving the original functionality.
+| Metric | Original greenDAO Code | LLM-Generated System | Improvement |
+| :--- | :---: | :---: | :---: |
+| **SOLID Violation Count** | **24** | **0** | **-100% (-24 violations)** |
+| **Dependency Inversion Score (DIS)** | **36.11%** | **93.33%** | **+57.22%** |
+| **Responsibility Entanglement Index (REI)** | **3.50** | **1.00** | **Reduced to ideal (1.00)** |
+
+Detailed evaluation breakdown, mathematical formulas, and principle-by-principle violation analysis are documented in [`TASK3_SOLID_COMPLIANCE.md`](file:///C:/Users/Endmin/Desktop/CSE423-SOLID-Team3/TASK3_SOLID_COMPLIANCE.md).
